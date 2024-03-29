@@ -1,0 +1,3 @@
+python -m venv price
+
+source "C:/Users/ian-g/OneDrive/Documentos/Comunidade DS/price_el/price/Scripts/activate"
