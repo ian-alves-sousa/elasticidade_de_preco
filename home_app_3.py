@@ -186,53 +186,50 @@ y_demanda.fillna(0, inplace=True)
 st.set_page_config(layout='wide')
 st.header('Elasticidade de Preços dos Produtos')
 
-col1, col2 = st.columns(2)
+produto = st.selectbox(
+    'Escolha um produto para determinar a sua elasticidade de preço:',
+    (lista_produtos))
 
-with col1:
-
-    produto = st.selectbox(
-        'Escolha um produto:',
-        (lista_produtos))
-
-    ###################### ELASTICIDADE INDIVIDUAL ################################
-    df_elasticidade = elasticidade_de_preco(x_mean_price, y_demanda, produto)
-    # st.dataframe(df_elasticidade.iloc[0, 1], use_container_width=True)
+###################### ELASTICIDADE INDIVIDUAL ################################
+df_elasticidade = elasticidade_de_preco(x_mean_price, y_demanda, produto)
+# st.dataframe(df_elasticidade.iloc[0, 1], use_container_width=True)
+st.write(
+    f'#### Sobre o produto: *{df_elasticidade.iloc[0, 0]}*')
+if abs(df_elasticidade.iloc[0, 1]) < 1:
     st.write(
-        f'#### Sobre o produto: *{df_elasticidade.iloc[0, 0]}*')
-    if abs(df_elasticidade.iloc[0, 1]) < 1:
-        st.write(
-            f'#### A Elasticidade de Preço é Inelástica: {round(df_elasticidade.iloc[0, 1],2)}')
-    elif abs(df_elasticidade.iloc[0, 1]) == 1:
-        st.write(
-            f'#### A Elasticidade de Preço é Unitária: {round(df_elasticidade.iloc[0, 1],2)}')
-    else:
-        st.write(
-            f'#### A Elasticidade de Preço é Elástica: {round(df_elasticidade.iloc[0, 1],2)}')
-
-    if df_elasticidade.iloc[0, 7] > 0.05:
-        st.write(
-            f'#### Contudo, *não há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],2)}')
-    else:
-        st.write(
-            f'#### *Há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],2)}')
-
-    if df_elasticidade.iloc[0, 6] >= 0.5:
-        st.write(
-            f'#### A reta se ajusta bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],2)}')
-    else:
-        st.write(
-            f'#### A reta não se ajusta muito bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],4)}')
-
+        f'#### A Elasticidade de Preço é Inelástica: {round(df_elasticidade.iloc[0, 1],2)}')
+elif abs(df_elasticidade.iloc[0, 1]) == 1:
     st.write(
-        f'#### Valor médio: $ {round(df_elasticidade.iloc[0, 2],2)}')
+        f'#### A Elasticidade de Preço é Unitária: {round(df_elasticidade.iloc[0, 1],2)}')
+else:
     st.write(
-        f'#### Demanda média: {round(df_elasticidade.iloc[0, 3],2)} vendas por semana')
-    ###################### ELASTICIDADE INDIVIDUAL ################################
+        f'#### A Elasticidade de Preço é Elástica: {round(df_elasticidade.iloc[0, 1],2)}')
 
+if df_elasticidade.iloc[0, 7] > 0.05:
+    st.write(
+        f'#### Contudo, *não há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],2)}')
+else:
+    st.write(
+        f'#### *Há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],2)}')
 
-with col2:
-    ###################### ELASTICIDADE CRUZADA ################################
-    # desconto = 0.05
+if df_elasticidade.iloc[0, 6] >= 0.5:
+    st.write(
+        f'#### A reta se ajusta bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],2)}')
+else:
+    st.write(
+        f'#### A reta não se ajusta muito bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],4)}')
+
+st.write(
+    f'#### Valor médio: $ {round(df_elasticidade.iloc[0, 2],2)}')
+st.write(
+    f'#### Demanda média: {round(df_elasticidade.iloc[0, 3],2)} vendas por semana')
+###################### ELASTICIDADE INDIVIDUAL ################################
+st.divider()
+###################### ELASTICIDADE CRUZADA ################################
+
+check = st.checkbox('Utilize a elasticidade de preços cruzada')
+
+if check:
 
     desconto = st.number_input(
         'Insira a variação no preço em %:', min_value=-0.15, max_value=0.15, value=0.0)
@@ -267,8 +264,8 @@ with col2:
             f'#### Correspondente a {round(variacao_faturamento_total*100,2)}%')
 
     st.write(
-        f'###### Observação: Esse calculo usa apenas as elasticidades de preço que apresentam significância estatística!')
-###################### ELASTICIDADE CRUZADA ################################
+        f'###### Observação: Esse cálculo usa apenas as elasticidades de preço que apresentam significância estatística!')
+    ###################### ELASTICIDADE CRUZADA ################################
     st.divider()
     ###################### SUBSTITUTOS E CORRESPONDENTES ################################
     substitutos, correspondentes = substitutos_correspondentes(
@@ -279,13 +276,13 @@ with col2:
         for substituto in substitutos:
             st.write(f'###### {substituto}')
     else:
-        st.write('#### Não há produtos Substitutos:')
+        st.write('#### Não há produtos Substitutos.')
 
     if len(correspondentes) > 0:
         st.write('#### Produtos Correspondentes:')
         for correspondente in correspondentes:
             st.write(f'###### {correspondente}')
     else:
-        st.write('#### Não há produtos Correspondentes:')
+        st.write('#### Não há produtos Correspondentes.')
 
     ###################### SUBSTITUTOS E CORRESPONDENTES ################################
