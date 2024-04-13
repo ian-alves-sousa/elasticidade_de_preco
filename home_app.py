@@ -67,7 +67,7 @@ def elasticidade_de_preco(x_mean_price, y_demanda, nome):
     ax.plot(df_price_demand['Preço Médio'], results.params[0] + results.params[1]
             * df_price_demand['Preço Médio'], color='red', label='Reta de Regressão')
 
-    ax.set_xlabel('Preço Médio')
+    ax.set_xlabel('Preço')
     ax.set_ylabel('Demanda')
     ax.set_title(
         f'Gráfico de Preço x Demanda')
