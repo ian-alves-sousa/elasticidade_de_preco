@@ -6,7 +6,7 @@
 
 # Introdução
 
-Esse é um projeto end-to-end de Data Science com modelo de regressão linear aplicada com o intuito de encontrar a elasticidade de preço dos produtos. No qual identificamos a elasticidade de todos os produtos e como a mudança de preços de um produto afetam na categoria. Os resultados podem ser acessadas pelo usuário por meio de um web app [(link)](https://elasticidade-de-preco.streamlit.app), aplicando o desconto no produto e visualiando como isso afeta no faturamento anual da categoria.
+Esse é um projeto end-to-end de Data Science com modelo de regressão linear aplicada com o intuito de encontrar a elasticidade de preço dos produtos. No qual identificamos a elasticidade de todos os produtos e como a mudança de preços de um produto afetam na categoria. Os resultados podem ser acessadas pelo usuário por meio de um web app [(link)](https://elasticidade-de-preco.streamlit.app), aplicando o desconto no produto e visualizando como isso afeta no faturamento anual da categoria.
 
 Esse projeto faz parte da "Comunidade DS", que é um ambiente de estudo que promove o aprendizado, execução, e discussão de projetos de Data Science.
 
