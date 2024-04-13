@@ -204,14 +204,14 @@ else:
 
 if df_elasticidade.iloc[0, 7] > 0.05:
     st.write(
-        f'#### Contudo, *não há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],2)}')
+        f'#### Contudo, *não há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],4)}')
 else:
     st.write(
-        f'#### *Há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],2)}')
+        f'#### *Há significância estatística*, pois p valor é: {round(df_elasticidade.iloc[0, 7],4)}')
 
 if df_elasticidade.iloc[0, 6] >= 0.5:
     st.write(
-        f'#### A reta se ajusta bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],2)}')
+        f'#### A reta se ajusta bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],4)}')
 else:
     st.write(
         f'#### A reta não se ajusta muito bem aos pontos, pois o R² é: {round(df_elasticidade.iloc[0, 6],4)}')
