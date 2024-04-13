@@ -197,6 +197,7 @@ Assim, podemos observar na imagem a seguir uma simulação do comportamento de c
 </div>
 
 Os produtos _12 MacBook (Mid 2017, Silver)_ e _Details About Apple Macbook Air 13.3 Laptop_ apresentam ganhos significavos, certamente impactados pelo alto valor de suas elasticidade de preço.
+
 Os demais produtos também aumentam suas demandas e geram lucro apesar do desconto aplicado.
 
 # 7. Elasticidade de Preços Cruzada
@@ -208,6 +209,7 @@ Contudo, como a mudança do preço desse produto implica na demanda dos demais p
 </div>
 
 Através desses valores podemos simular como seria o comportamento da cateoria inteira caso um desconto fosse aplicado em um produto e quais produtos seriam complementares ou substitutos ao mesmo.
+
 Na imagem a seguir segue um exemplo disso, onde a aplicação criada realiza o cálculo automático de como o faturamento da categoria mudaria com a mudança no preço de um produto específico.
 
 <div align="center">
@@ -231,7 +233,8 @@ A aplicação foi implementada e colocado em produção por meio da cloud Stream
 </div>
 <br>
 
-Para utilizar basta entrar no [link](https://elasticidade-de-preco.streamlit.app){:target="\_blank"} e escolher o produto.
+Para utilizar basta entrar no [link](https://elasticidade-de-preco.streamlit.app){:target="_blank"} e escolher o produto.
+
 O resultado do faturamento após o desconto é mostrado ao clicar no checkbox e variar o número da variação percentual a ser aplicada no produto.
 
 # 9. Conclusão
