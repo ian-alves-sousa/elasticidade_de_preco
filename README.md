@@ -231,7 +231,7 @@ A aplicação foi implementada e colocado em produção por meio da cloud Stream
 </div>
 <br>
 
-Para utilizar basta entrar no link (https://elasticidade-de-preco.streamlit.app) e escolher o produto.
+Para utilizar basta entrar no link <a href="https://elasticidade-de-preco.streamlit.app" target="_blank">aqui</a> e escolher o produto.
 O resultado do faturamento após o desconto é mostrado ao clicar no checkbox e variar o número da variação percentual a ser aplicada no produto.
 
 # 9. Conclusão
