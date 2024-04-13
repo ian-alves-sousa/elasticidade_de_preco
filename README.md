@@ -252,3 +252,4 @@ Tendo em vista esses resultados, o projeto alcançou seu objetivo de encontrar u
 - Realizar uma EDA mais aprodunda na categoria de Laptops e Computadores da Best Buy.
 - Através dessa EDA visar explicar quais são os melhores produtos e procurar indícios que expliquem sua elasticidade de preços.
 - Utilizar outras formas de calcular a elasticidade de preços.
+- Otimizar o web app de forma de fique mais funcional para seus usuários.
