@@ -67,17 +67,17 @@ def elasticidade_de_preco(x_mean_price, y_demanda, nome):
     ax.plot(df_price_demand['Preço Médio'], results.params[0] + results.params[1]
             * df_price_demand['Preço Médio'], color='red', label='Reta de Regressão')
 
-    ax.set_xlabel('Preço ($)', fontsize=8)
-    ax.set_ylabel('Demanda', fontsize=8)
+    ax.set_xlabel('Preço ($)', fontsize=6)
+    ax.set_ylabel('Demanda', fontsize=6)
     ax.set_title(
-        f'Gráfico de Preço x Demanda', fontsize=10)
-    ax.legend(fontsize=6)
+        f'Gráfico de Preço x Demanda', fontsize=8)
+    ax.legend(fontsize=4)
     ax.grid(True)
     # Definir tamanho dos números nos labels dos eixos x e y
     # Definir tamanho dos números no eixo x como 8
-    ax.tick_params(axis='x', labelsize=7)
+    ax.tick_params(axis='x', labelsize=5)
     # Definir tamanho dos números no eixo y como 8
-    ax.tick_params(axis='y', labelsize=7)
+    ax.tick_params(axis='y', labelsize=5)
 
     # Exibir o gráfico no Streamlit
     st.pyplot(fig, use_container_width=False)
