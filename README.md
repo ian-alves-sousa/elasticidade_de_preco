@@ -229,7 +229,7 @@ Com essas consideração uma aplicação foi criada, com as seguintes funcionali
 A aplicação foi implementada e colocado em produção por meio da cloud Streamlit (https://streamlit.io), que tem como objetivo possibilitar a criação, execução e operação de aplicativos inteiramente localizados em nuvem.
 
 <div align="center">
-<img src="img/streamlit_app.gif" />
+<img src="img/new_app.gif" />
 </div>
 <br>
 
