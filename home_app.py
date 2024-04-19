@@ -57,7 +57,7 @@ def elasticidade_de_preco(x_mean_price, y_demanda, nome):
     })
 
     # Criar um novo subplot para o gráfico
-    fig, ax = plt.subplots(figsize=(8, 4))
+    fig, ax = plt.subplots(figsize=(5, 3))
 
     # Plotar os pontos de dados
     ax.scatter(df_price_demand['Preço Médio'],
@@ -67,15 +67,20 @@ def elasticidade_de_preco(x_mean_price, y_demanda, nome):
     ax.plot(df_price_demand['Preço Médio'], results.params[0] + results.params[1]
             * df_price_demand['Preço Médio'], color='red', label='Reta de Regressão')
 
-    ax.set_xlabel('Preço')
-    ax.set_ylabel('Demanda')
+    ax.set_xlabel('Preço ($)', fontsize=8)
+    ax.set_ylabel('Demanda', fontsize=8)
     ax.set_title(
-        f'Gráfico de Preço x Demanda')
-    ax.legend()
+        f'Gráfico de Preço x Demanda', fontsize=10)
+    ax.legend(fontsize=6)
     ax.grid(True)
+    # Definir tamanho dos números nos labels dos eixos x e y
+    # Definir tamanho dos números no eixo x como 8
+    ax.tick_params(axis='x', labelsize=7)
+    # Definir tamanho dos números no eixo y como 8
+    ax.tick_params(axis='y', labelsize=7)
 
     # Exibir o gráfico no Streamlit
-    st.pyplot(fig)
+    st.pyplot(fig, use_container_width=False)
 
     return pd.DataFrame.from_dict(results_values)
 
@@ -180,7 +185,8 @@ x_mean_price.fillna(mediana_x, inplace=True)
 y_demanda.fillna(0, inplace=True)
 ###################### PREPARANDO O DATASET PARA A REGRESSÃO LINEAR ################################
 
-st.set_page_config(layout='wide')
+st.set_page_config(page_title='Elasticity App',
+                   layout="wide", page_icon=':dollar:')
 st.header('Elasticidade de Preços dos Produtos')
 
 produto = st.selectbox(
