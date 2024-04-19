@@ -57,7 +57,7 @@ def elasticidade_de_preco(x_mean_price, y_demanda, nome):
     })
 
     # Criar um novo subplot para o gráfico
-    fig, ax = plt.subplots(figsize=(5, 3))
+    fig, ax = plt.subplots(figsize=(4, 2))
 
     # Plotar os pontos de dados
     ax.scatter(df_price_demand['Preço Médio'],
